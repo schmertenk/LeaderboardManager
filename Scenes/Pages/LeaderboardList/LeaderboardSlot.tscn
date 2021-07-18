@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Buttons/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/edit-4-64.png" type="Texture" id=2]
+[ext_resource path="res://normal_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/Pages/LeaderboardList/LeaderboardSlot.gd" type="Script" id=4]
+
+[node name="Slot" type="Control"]
+anchor_right = 1.0
+rect_min_size = Vector2( 0, 40 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_vertical = 3
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 278.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "test"
+
+[node name="entries" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 303.0
+margin_top = 4.0
+margin_right = 581.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "test"
+
+[node name="highscore" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 606.0
+margin_top = 4.0
+margin_right = 884.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "test"
+align = 2
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 909.0
+margin_right = 984.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 75, 0 )
+custom_constants/separation = 5
+
+[node name="ViewButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 1 )]
+margin_bottom = 34.0
+
+[node name="EditButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 1 )]
+margin_left = 40.0
+margin_right = 75.0
+margin_bottom = 34.0
+icon = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 984.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 0.698039, 0.670588, 0.54902, 1 )
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Buttons/ViewButton" to="." method="_on_ViewButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Buttons/EditButton" to="." method="_on_EditButton_pressed"]

@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/PageTitle/PageTitle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pages/ViewLeaderboard/ViewLeaderboard.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Buttons/BackButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://normal_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/Pages/ViewLeaderboard/Entry.gd" type="Script" id=6]
+
+[node name="ViewLeaderboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 877.603, 34.1826 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageTitle" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_right = 1024.0
+margin_bottom = 50.0
+
+[node name="SlotContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 80.0
+margin_right = 1024.0
+margin_bottom = 120.0
+
+[node name="Entry" type="Control" parent="VBoxContainer/SlotContainer"]
+margin_right = 1024.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SlotContainer/Entry"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_vertical = 3
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="place" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 176.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Place"
+
+[node name="name" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
+margin_left = 201.0
+margin_top = 4.0
+margin_right = 378.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Username"
+
+[node name="submissions" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
+margin_left = 403.0
+margin_top = 4.0
+margin_right = 580.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Submissions"
+
+[node name="score" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
+margin_left = 605.0
+margin_top = 4.0
+margin_right = 782.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Score"
+
+[node name="actions" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
+margin_left = 807.0
+margin_top = 4.0
+margin_right = 984.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Actions"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer"]
+margin_top = 38.0
+margin_right = 984.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 0.698039, 0.670588, 0.54902, 1 )
+
+[node name="IconButton" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.0417891
+anchor_top = 0.889255
+anchor_right = 0.182414
+anchor_bottom = 0.942589
+margin_right = 0.0
+margin_bottom = 0.0

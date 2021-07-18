@@ -1,0 +1,214 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/PageTitle/PageTitle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Buttons/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://normal_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/TextEdit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Pages/NewLeaderboard/NewLeaderboard.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Buttons/BackButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SourceSansPro-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 8 )
+
+[node name="NewLeaderboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageTitle" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_right = 1024.0
+margin_bottom = 50.0
+text = "New Leaderboard"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 1024.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="CreateButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_right = 507.0
+margin_bottom = 50.0
+text = "Create new Leaderboard"
+icon = null
+
+[node name="ImportButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 517.0
+margin_right = 1024.0
+margin_bottom = 50.0
+text = "Gain Access to existing Leaderboard"
+icon = null
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 120.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Import" type="VBoxContainer" parent="VBoxContainer/Control"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1044.0
+margin_bottom = 102.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/Import"]
+margin_right = 1024.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 1 )
+text = "Gain accress to existing leaderboard"
+
+[node name="Key" type="HBoxContainer" parent="VBoxContainer/Control/Import"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 0, 31 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/Import/Key"]
+margin_top = 2.0
+margin_right = 95.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 75, 0 )
+custom_fonts/font = ExtResource( 4 )
+text = "Master key:"
+
+[node name="TextEdit" parent="VBoxContainer/Control/Import/Key" instance=ExtResource( 5 )]
+margin_left = 99.0
+margin_right = 349.0
+
+[node name="Buttons" type="Control" parent="VBoxContainer/Control/Import"]
+margin_top = 129.0
+margin_right = 1024.0
+margin_bottom = 129.0
+size_flags_vertical = 3
+
+[node name="IconButton" parent="VBoxContainer/Control/Import/Buttons" instance=ExtResource( 3 )]
+margin_right = 250.0
+margin_bottom = 32.0
+size_flags_horizontal = 1
+text = "Submit"
+icon = null
+
+[node name="Create" type="VBoxContainer" parent="VBoxContainer/Control"]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1044.0
+margin_bottom = 51.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/Create"]
+margin_right = 1024.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 1 )
+text = "Create new leaderboard"
+
+[node name="Name" type="HBoxContainer" parent="VBoxContainer/Control/Create"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 0, 31 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/Create/Name"]
+margin_top = 2.0
+margin_right = 75.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 75, 0 )
+custom_fonts/font = ExtResource( 4 )
+text = "Name:"
+
+[node name="TextEdit" parent="VBoxContainer/Control/Create/Name" instance=ExtResource( 5 )]
+margin_left = 79.0
+margin_right = 329.0
+
+[node name="Buttons" type="Control" parent="VBoxContainer/Control/Create"]
+margin_top = 129.0
+margin_right = 1024.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_vertical = 3
+
+[node name="IconButton" parent="VBoxContainer/Control/Create/Buttons" instance=ExtResource( 3 )]
+margin_right = 250.0
+margin_bottom = 32.0
+size_flags_horizontal = 1
+text = "Submit"
+icon = null
+
+[node name="Data" type="VBoxContainer" parent="VBoxContainer/Control/Create"]
+visible = false
+margin_top = 184.0
+margin_right = 1024.0
+margin_bottom = 330.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Disclamer" type="Label" parent="VBoxContainer/Control/Create/Data"]
+margin_right = 1024.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 4 )
+text = "A new leaderboard was created."
+
+[node name="name" type="Label" parent="VBoxContainer/Control/Create/Data"]
+margin_top = 30.0
+margin_right = 1024.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 4 )
+
+[node name="public_key" type="Label" parent="VBoxContainer/Control/Create/Data"]
+margin_top = 60.0
+margin_right = 1024.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 4 )
+
+[node name="master_key" type="Label" parent="VBoxContainer/Control/Create/Data"]
+margin_top = 90.0
+margin_right = 1024.0
+margin_bottom = 116.0
+custom_fonts/font = ExtResource( 4 )
+
+[node name="encryption_key" type="Label" parent="VBoxContainer/Control/Create/Data"]
+margin_top = 120.0
+margin_right = 1024.0
+margin_bottom = 146.0
+custom_fonts/font = ExtResource( 4 )
+
+[node name="IconButton" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.0231853
+anchor_top = 0.908546
+anchor_right = 0.16381
+anchor_bottom = 0.961879
+margin_right = 0.0
+margin_bottom = 0.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CreateButton" to="." method="_on_CreateButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/Import/Buttons/IconButton" to="." method="_on_import_submission_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/Create/Buttons/IconButton" to="." method="_on_create_board_pressed"]

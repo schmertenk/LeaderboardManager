@@ -1,0 +1,284 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://normal_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Buttons/BackButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/PageTitle/PageTitle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Buttons/Button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Pages/HowTo/HowTo.gd" type="Script" id=6]
+[ext_resource path="res://codefont.tres" type="DynamicFont" id=7]
+
+[node name="HowTo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageTitle" parent="VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_right = 1024.0
+margin_bottom = 50.0
+text = "How to"
+how_to = false
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Questions" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer"]
+margin_right = 333.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 20
+
+[node name="Q0" parent="VBoxContainer/Control/HBoxContainer/Questions" instance=ExtResource( 5 )]
+margin_right = 333.0
+margin_bottom = 32.0
+text = "About this software"
+icon = null
+
+[node name="Q1" parent="VBoxContainer/Control/HBoxContainer/Questions" instance=ExtResource( 5 )]
+margin_top = 52.0
+margin_right = 333.0
+margin_bottom = 84.0
+text = "How to get the data?"
+icon = null
+
+[node name="Q2" parent="VBoxContainer/Control/HBoxContainer/Questions" instance=ExtResource( 5 )]
+margin_top = 104.0
+margin_right = 333.0
+margin_bottom = 136.0
+text = "How to submit a new entry?"
+icon = null
+
+[node name="Q3" parent="VBoxContainer/Control/HBoxContainer/Questions" instance=ExtResource( 5 )]
+margin_top = 156.0
+margin_right = 333.0
+margin_bottom = 188.0
+text = "Is the server always on?"
+icon = null
+
+[node name="Q4" parent="VBoxContainer/Control/HBoxContainer/Questions" instance=ExtResource( 5 )]
+margin_top = 208.0
+margin_right = 333.0
+margin_bottom = 240.0
+text = "Do i have to code all of this by myself!?"
+icon = null
+
+[node name="Answers" type="Control" parent="VBoxContainer/Control/HBoxContainer"]
+margin_left = 363.0
+margin_right = 984.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="A0" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer/Answers"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "This Software is capable of creating and managing global leaderboards for your game!
+It grants you easy access to my server at kitchen-games.de which allows you to store and get leaderboard data by sending various get requests. 
+Read on for more information.
+
+If you're lucky and developing with the godot game engine, this software can generate a GD Script which saves you the effort to implement the request sending and local saving parts.
+(Tested with version 3.3)"
+text = "This Software is capable of creating and managing global leaderboards for your game!
+It grants you easy access to my server at kitchen-games.de which allows you to store and get leaderboard data by sending various get requests. 
+Read on for more information.
+
+If you're lucky and developing with the godot game engine, this software can generate a GD Script which saves you the effort to implement the request sending and local saving parts.
+(Tested with version 3.3)"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A1" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer/Answers"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "You access the leaderboard by sending GET Requests to the kitche-games.de server. 
+Therefor you neet to  provide the corresponding public key of it.
+You recieve the data in json format
+
+Here are some examples
+
+Get the entries in place 1-100.
+[color=#aaffaa][code]https://www.kitchen-games.de/new/get_entries.php?key=321321321&from=1&to=100[/code][/color]
+
+Get a specific entry from a player:
+[color=#aaffaa][code]https://www.kitchen-games.de/new/get_entry.php?key=321321321&name=name%20of%20the%20player[/code][/color]
+
+Get a specific entry and the places above and unter it:
+[color=#aaffaa][code]https://www.kitchen-games.de/new/get_entry.php?key=321321321&name=name%20of%20the%20player&before=2&after=2[/code][/color]
+"
+text = "You access the leaderboard by sending GET Requests to the kitchen-games.de server. 
+Therefor you need to provide the corresponding public key of your leaderboard.
+You recieve the data in json format
+
+Here are some examples
+
+Get the entries in place 1-100.
+https://www.kitchen-games.de/new/get_entries.php?key=321321321&from=1&to=100
+
+Get a specific entry from a player:
+https://www.kitchen-games.de/new/get_entry.php?key=321321321&name=name%20of%20the%20player
+
+Get a specific entry and the places above and unter it:
+https://www.kitchen-games.de/new/get_entry.php?key=321321321&name=name%20of%20the%20player&before=2&after=2
+"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A2" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer/Answers"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "You access the leaderboard by sending GET Requests to the kitche-games.de server. 
+Therefor you neet to  provide the corresponding public key of it. 
+
+In order to submit a new entry, the player needs a private key. 
+The private key is generated and returned by the server when you submit an entry for a player the first time.
+
+To prevent cheating, the score has to be encrypted with the leaderboards encryption_key before submitting it to the server. The algorythm to encrypt the data is the AES-128-ECB.
+The resulting bytes of the encryption have to be converted to integers and seperated by \"_\"
+
+Some examples:
+
+Here is a submission of the player with the name \"grumpy and giant tea\". The score is 0. As this is its first submission to the leaderboard, there is no need to provide a private key.
+
+[color=#aaffaa][code]https://www.kitchen-games.de/new/submit_entry.php?public_key=321321321&name=grumpy%20and%20giant%20tea&score=186_8_109_216_20_147_18_39_191_140_6_12_241_158_98_63[/code][/color]
+
+For this request, the server returns the following json, including the private key:
+[color=#aaffaa][code]{ok:True, private_key:5675675675}[/code][/color]
+
+In order to update the entry for \"grumpy and giant tea\", just send the same request with the new score and, additionally, the private key:
+
+[color=#aaffaa][code]https://www.kitchen-games.de/new/submit_entry.php?public_key=321321321&private_key=5675675675&name=grumpy%20and%20giant%20tea&score=186_8_109_216_20_147_18_39_191_140_6_12_241_158_98_63[/code][/color]"
+text = "You access the leaderboard by sending GET Requests to the kitchen-games.de server. 
+Therefor you need to provide the corresponding public key of your leaderboard.
+
+In order to submit a new entry, the player needs a private key. 
+The private key is generated and returned by the server when you submit an entry for a player the first time.
+
+To prevent cheating, the score has to be encrypted with the leaderboards encryption_key before submitting it to the server. The algorythm to encrypt the data is the AES-128-ECB.
+The resulting bytes of the encryption have to be converted to integers and seperated by \"_\"
+
+Some examples:
+
+Here is a submission of the player with the name \"grumpy and giant tea\". The score is 0. As this is its first submission to the leaderboard, there is no need to provide a private key.
+
+https://www.kitchen-games.de/new/submit_entry.php?public_key=321321321&name=grumpy%20and%20giant%20tea&score=186_8_109_216_20_147_18_39_191_140_6_12_241_158_98_63
+
+For this request, the server returns the following json, including the private key:
+{ok:True, private_key:5675675675}
+
+In order to update the entry for \"grumpy and giant tea\", just send the same request with the new score and, additionally, the private key:
+
+https://www.kitchen-games.de/new/submit_entry.php?public_key=321321321&private_key=5675675675&name=grumpy%20and%20giant%20tea&score=186_8_109_216_20_147_18_39_191_140_6_12_241_158_98_63"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A3" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer/Answers"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "It should be. The server is hosted for free and therefor its availability is not guaranteed. This is a free service so i try to keep the costs low.
+
+I would suggest that you save the last score locally and \"sync\" it sometime later. 
+(I recomment encrypting the locally saved file to prevent cheating)"
+text = "It should be. The server is hosted for free and therefor its availability is not guaranteed. This is a free service so i try to keep the costs low.
+
+I would suggest that you save the last score locally and \"sync\" it sometime later. 
+(I recomment encrypting the locally saved file to prevent cheating)"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A4" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer/Answers"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Totally not! I allready created it for you, and you can generate it with this tool!
+
+For more information  and generating the script, go to the edit page of the desired leaderboard and click \"generate GD Script Class\""
+text = "Totally not! I allready created it for you, and you can generate it with this tool!
+
+For more information  and generating the script, go to the edit page of the desired leaderboard and click \"generate GD Script Class\""
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconButton" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.0231853
+anchor_top = 0.908546
+anchor_right = 0.16381
+anchor_bottom = 0.961879
+margin_right = 0.0
+margin_bottom = 0.0
+
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/Questions/Q0" to="." method="_on_Q0_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/Questions/Q1" to="." method="_on_Q1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/Questions/Q2" to="." method="_on_Q2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/Questions/Q3" to="." method="_on_Q3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/Questions/Q4" to="." method="_on_Q4_pressed"]

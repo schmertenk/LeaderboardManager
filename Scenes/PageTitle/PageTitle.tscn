@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://SourceSansPro-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/PageTitle/PageTitle.gd" type="Script" id=2]
+[ext_resource path="res://images/question-mark-48.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Buttons/Button.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+outline_color = Color( 0.858824, 0.901961, 0.992157, 1 )
+font_data = ExtResource( 1 )
+
+[node name="PageTitle" type="ColorRect"]
+anchor_right = 1.0
+rect_min_size = Vector2( 0, 50 )
+color = Color( 0.160784, 0.231373, 0.372549, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.858824, 0.901961, 0.992157, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconButton" parent="." instance=ExtResource( 4 )]
+margin_left = 17.1519
+margin_top = 2.87206
+margin_right = 62.1519
+margin_bottom = 47.8721
+icon = ExtResource( 3 )
+
+[connection signal="pressed" from="IconButton" to="." method="_on_IconButton_pressed"]
