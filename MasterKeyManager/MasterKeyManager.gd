@@ -54,6 +54,7 @@ func on_board_recieved(data, data_type):
 		leaderboard.public_key = board.public_key
 		leaderboard.entry_count = board.entry_count
 		leaderboard.master_key = board.master_key
+		leaderboard.low_wins = board.low_wins
 		leaderboards.append(leaderboard)
 	emit_signal("refreshed")
 	RequestManager.disconnect("data_recieved", self, "on_board_recieved")

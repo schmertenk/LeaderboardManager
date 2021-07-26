@@ -9,6 +9,7 @@ func _ready():
 	$VBoxContainer/Control/VBoxContainer/PublicKey/TextEdit.text = str(board.public_key)
 	$VBoxContainer/Control/VBoxContainer/EncryptionKey/TextEdit.text = str(board.encryption_key)
 	$VBoxContainer/Control/VBoxContainer/MasterKey/TextEdit.text = str(board.master_key)
+	$VBoxContainer/Control/VBoxContainer/LowBetter/CheckBox.pressed = board.low_wins
 
 
 func _on_QuestionButton_name_pressed():
@@ -55,7 +56,10 @@ func on_leaderboard_deleted(data, data_type):
 func _on_SubmitChangesButton_pressed():
 	var board_name = $VBoxContainer/Control/VBoxContainer/Name/TextEdit.text
 	var encryption_key = $VBoxContainer/Control/VBoxContainer/EncryptionKey/TextEdit.text
-	RequestManager.update_leaderboard(board.master_key, board_name, encryption_key)
+	var board_order = 0
+	if $VBoxContainer/Control/VBoxContainer/LowBetter/CheckBox.pressed:
+		board_order = 1
+	RequestManager.update_leaderboard(board.master_key, board_name, encryption_key, board_order)
 
 
 func _on_ResetChanges_pressed():
@@ -66,3 +70,7 @@ func _on_ResetChanges_pressed():
 
 func _on_GenerateGDScriptButtin_pressed():
 	get_tree().change_scene("res://Scenes/Pages/ExportGDScript/ExportGDScript.tscn")
+
+
+func _on_QuestionButton_LowBetter_pressed():
+	$VBoxContainer/Control/VBoxContainer/LowBetter/Answer.visible = !$VBoxContainer/Control/VBoxContainer/LowBetter/Answer.visible

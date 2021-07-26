@@ -1,7 +1,7 @@
 extends Node
 
 signal data_recieved(data, type)
-signal timeout(type)
+signal timeoutout(type)
 
 enum WAIT_FOR {
 	NOTHING,
@@ -29,12 +29,14 @@ var http_request
 var waiting_for = WAIT_FOR.NOTHING # the flag to determine which data is expected when the request is done
 var time_out_timer
 var loading_mask
+var timeout_mask
 
 
 func _ready():
 	loading_mask = preload("res://RequestManager/LoadingMask/LoadingMask.tscn").instance()
+	timeout_mask = preload("res://RequestManager/TimeOutMask/TimeOutMask.tscn").instance()
 	time_out_timer = Timer.new()
-	time_out_timer.wait_time = 3
+	time_out_timer.wait_time = 5
 	time_out_timer.connect("timeout", self, "on_timeout")
 	add_child(time_out_timer)
 	http_request = HTTPRequest.new()
@@ -61,17 +63,20 @@ func _on_request_completed(_result, response_code, _headers, body):
 	
 func on_timeout():
 	emit_signal("timeout", waiting_for)
+	if timeout_mask.get_parent():
+		timeout_mask.get_parent().remove_child(timeout_mask)
+	get_node("/root").call_deferred("add_child", timeout_mask)
 	loading_mask.hide()
 
 
 func get_highscore_for_player(_player_id, public_key, befor = 0, after = 0):
-	var url = host + "/get_entry.php?key=" + str(public_key)  + "&name=" + _player_id.http_escape() + "&befor=" + str(befor) + "&after=" + str(after)
+	var url = host + "/get_entry.php?public_key=" + str(public_key)  + "&name=" + _player_id.http_escape() + "&befor=" + str(befor) + "&after=" + str(after)
 	send_request(url, WAIT_FOR.HIGHSCORE_FOR_PLAYER)
 	
 	
 func get_highscore_for_places(public_key, from, to):
 	from = max(from, 1)
-	var url = host + "/get_entries.php?key=" + str(public_key)  + "&from=" + str(from) + "&to=" + str(to) + "&with_blocked=1"
+	var url = host + "/get_entries.php?public_key=" + str(public_key)  + "&from=" + str(from) + "&to=" + str(to) + "&with_blocked=1"
 	send_request(url, WAIT_FOR.HIGHSCORE_FOR_PLACES)
 
 
@@ -93,8 +98,8 @@ func delete_leaderboard(master_key):
 	send_request(master_host + "/delete_leaderboard.php?master_key=" + str(master_key), WAIT_FOR.DELETE_LEADERBOARD_DATA)
 	
 	
-func update_leaderboard(master_key, board_name, encryption_key):
-	var url = master_host + "/update_leaderboard.php?master_key=" + str(master_key) + "&name=" + str(board_name) + "&encryption_key=" + str(encryption_key)
+func update_leaderboard(master_key, board_name, encryption_key, lower_better):
+	var url = master_host + "/update_leaderboard.php?master_key=" + str(master_key) + "&name=" + str(board_name) + "&encryption_key=" + str(encryption_key) + "&lower_better=" + str(lower_better)
 	send_request(url, WAIT_FOR.UPDATE_LEADERBOARD_DATA)
 
 

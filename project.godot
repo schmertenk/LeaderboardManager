@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LeaderboardManager"
-run/main_scene="res://Scenes/Pages/LeaderboardList/LeaderboardList.tscn"
+run/main_scene="res://Scenes/Kitchengames/Kitchengames.tscn"
 
 [autoload]
 

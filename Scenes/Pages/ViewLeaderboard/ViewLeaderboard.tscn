@@ -70,6 +70,7 @@ margin_right = 176.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Place"
 
 [node name="name" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
@@ -79,6 +80,7 @@ margin_right = 378.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Username"
 
 [node name="submissions" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
@@ -88,6 +90,7 @@ margin_right = 580.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Submissions"
 
 [node name="score" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
@@ -97,6 +100,7 @@ margin_right = 782.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Score"
 
 [node name="actions" type="Label" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer/HBoxContainer"]
@@ -106,6 +110,7 @@ margin_right = 984.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Actions"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/SlotContainer/Entry/VBoxContainer"]
@@ -113,7 +118,7 @@ margin_top = 38.0
 margin_right = 984.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 2 )
-color = Color( 0.698039, 0.670588, 0.54902, 1 )
+color = Color( 0.313726, 0.501961, 0.556863, 1 )
 
 [node name="IconButton" parent="." instance=ExtResource( 4 )]
 anchor_left = 0.0417891

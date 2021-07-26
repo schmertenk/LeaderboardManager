@@ -162,7 +162,7 @@ func make_local_highscore_file():
 
 
 func get_highscore_for_player(_player_id, before = 0, after = 0):
-	var url = host + "/get_entry.php?key=" + str(public_key)  + "&player_id=" + _player_id + "&before=" + str(before) + "&after=" + str(after)
+	var url = host + "/get_entry.php?public_key=" + str(public_key)  + "&player_id=" + _player_id + "&before=" + str(before) + "&after=" + str(after)
 	http_request.cancel_request()
 	var _err = http_request.request(url)
 	waiting_for = WAIT_FOR.HIGHSCORE_FOR_PLAYER
@@ -171,7 +171,7 @@ func get_highscore_for_player(_player_id, before = 0, after = 0):
 	
 func get_highscore_for_places(from, to):
 	from = max(from, 1)
-	var url = host + "/get_entries.php?key=" + str(public_key)  + "&from=" + str(from) + "&to=" + str(to)
+	var url = host + "/get_entries.php?public_key=" + str(public_key)  + "&from=" + str(from) + "&to=" + str(to)
 	http_request.cancel_request()
 	var _err = http_request.request(url)
 	waiting_for = WAIT_FOR.HIGHSCORE_FOR_PLACES

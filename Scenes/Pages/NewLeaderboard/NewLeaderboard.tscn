@@ -79,6 +79,7 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 58.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Gain accress to existing leaderboard"
 
 [node name="Key" type="HBoxContainer" parent="VBoxContainer/Control/Import"]
@@ -93,6 +94,7 @@ margin_right = 95.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 75, 0 )
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Master key:"
 
 [node name="TextEdit" parent="VBoxContainer/Control/Import/Key" instance=ExtResource( 5 )]
@@ -127,6 +129,7 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 58.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Create new leaderboard"
 
 [node name="Name" type="HBoxContainer" parent="VBoxContainer/Control/Create"]
@@ -141,6 +144,7 @@ margin_right = 75.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 75, 0 )
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Name:"
 
 [node name="TextEdit" parent="VBoxContainer/Control/Create/Name" instance=ExtResource( 5 )]
@@ -150,7 +154,7 @@ margin_right = 329.0
 [node name="Buttons" type="Control" parent="VBoxContainer/Control/Create"]
 margin_top = 129.0
 margin_right = 1024.0
-margin_bottom = 330.0
+margin_bottom = 164.0
 rect_min_size = Vector2( 0, 35 )
 size_flags_vertical = 3
 
@@ -174,6 +178,7 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 26.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "A new leaderboard was created."
 
 [node name="name" type="Label" parent="VBoxContainer/Control/Create/Data"]
@@ -181,24 +186,28 @@ margin_top = 30.0
 margin_right = 1024.0
 margin_bottom = 56.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 
 [node name="public_key" type="Label" parent="VBoxContainer/Control/Create/Data"]
 margin_top = 60.0
 margin_right = 1024.0
 margin_bottom = 86.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 
 [node name="master_key" type="Label" parent="VBoxContainer/Control/Create/Data"]
 margin_top = 90.0
 margin_right = 1024.0
 margin_bottom = 116.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 
 [node name="encryption_key" type="Label" parent="VBoxContainer/Control/Create/Data"]
 margin_top = 120.0
 margin_right = 1024.0
 margin_bottom = 146.0
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 
 [node name="IconButton" parent="." instance=ExtResource( 7 )]
 anchor_left = 0.0231853

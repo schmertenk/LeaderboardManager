@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Pages/EditLeaderboard/EditLeaderboard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Buttons/Button.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://normal_font.tres" type="DynamicFont" id=7]
 [ext_resource path="res://SourceSansPro-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://images/question-mark-48.png" type="Texture" id=9]
+[ext_resource path="res://images/unchecked-checkbox-48.png" type="Texture" id=10]
+[ext_resource path="res://images/checked-checkbox-48.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -28,14 +30,14 @@ size = 18
 font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.278431, 0.34902, 0.494118, 1 )
+bg_color = Color( 0.313726, 0.501961, 0.556863, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.278431, 0.34902, 0.494118, 1 )
+bg_color = Color( 0.313726, 0.501961, 0.556863, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -93,6 +95,7 @@ margin_right = 150.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 150, 0 )
 custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Name:"
 
 [node name="TextEdit" parent="VBoxContainer/Control/VBoxContainer/Name" instance=ExtResource( 6 )]
@@ -101,6 +104,7 @@ margin_right = 404.0
 margin_bottom = 32.0
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 
 [node name="QuestionButton" parent="VBoxContainer/Control/VBoxContainer/Name" instance=ExtResource( 2 )]
 margin_left = 408.0
@@ -119,7 +123,8 @@ margin_bottom = 29.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
-text = "The Name of your Leaderboard. This field is changeable"
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
+text = "The Name of your Leaderboard. This field is editable"
 autowrap = true
 
 [node name="EncryptionKey" type="HBoxContainer" parent="VBoxContainer/Control/VBoxContainer"]
@@ -134,6 +139,7 @@ margin_right = 150.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 150, 0 )
 custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Encryption Key: "
 
 [node name="TextEdit" parent="VBoxContainer/Control/VBoxContainer/EncryptionKey" instance=ExtResource( 6 )]
@@ -142,6 +148,7 @@ margin_right = 404.0
 margin_bottom = 32.0
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 
 [node name="QuestionButton" parent="VBoxContainer/Control/VBoxContainer/EncryptionKey" instance=ExtResource( 2 )]
 margin_left = 408.0
@@ -159,13 +166,59 @@ margin_bottom = 55.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
-text = "This 16 digit long key is used for the encryption of the highscore submission for this leaderboard. change it if if a cheater has found it!"
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
+text = "This 16 digit long key is used for the encryption of the highscore submission for this leaderboard. Change this key when a cheater has found it."
+autowrap = true
+
+[node name="LowBetter" type="HBoxContainer" parent="VBoxContainer/Control/VBoxContainer"]
+margin_top = 104.0
+margin_right = 1024.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 31 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/VBoxContainer/LowBetter"]
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 150, 0 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
+text = "The lower the better: "
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Control/VBoxContainer/LowBetter"]
+modulate = Color( 0.313726, 0.501961, 0.556863, 1 )
+margin_left = 184.0
+margin_right = 224.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_icons/checked = ExtResource( 11 )
+custom_icons/unchecked = ExtResource( 10 )
+
+[node name="QuestionButton" parent="VBoxContainer/Control/VBoxContainer/LowBetter" instance=ExtResource( 2 )]
+margin_left = 228.0
+margin_right = 260.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 1
+icon = ExtResource( 9 )
+
+[node name="Answer" type="Label" parent="VBoxContainer/Control/VBoxContainer/LowBetter"]
+visible = false
+margin_left = 444.0
+margin_right = 1024.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
+text = "if on, the leaderboard will list lower scores first"
 autowrap = true
 
 [node name="PublicKey" type="HBoxContainer" parent="VBoxContainer/Control/VBoxContainer"]
-margin_top = 104.0
+margin_top = 164.0
 margin_right = 1024.0
-margin_bottom = 136.0
+margin_bottom = 196.0
 rect_min_size = Vector2( 0, 31 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Control/VBoxContainer/PublicKey"]
@@ -174,7 +227,8 @@ margin_right = 150.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 150, 0 )
 custom_fonts/font = ExtResource( 7 )
-text = "Pblic Key: "
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
+text = "Public Key: "
 
 [node name="TextEdit" parent="VBoxContainer/Control/VBoxContainer/PublicKey" instance=ExtResource( 6 )]
 margin_left = 154.0
@@ -184,8 +238,10 @@ custom_styles/read_only = SubResource( 3 )
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/background_color = Color( 0, 0, 0, 1 )
 custom_colors/number_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_readonly = Color( 1, 1, 0.988235, 1 )
 text = "test"
 readonly = true
 
@@ -206,13 +262,14 @@ margin_bottom = 29.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "This unique key identifies your Leaderboard. Its not editable."
 autowrap = true
 
 [node name="MasterKey" type="HBoxContainer" parent="VBoxContainer/Control/VBoxContainer"]
-margin_top = 156.0
+margin_top = 216.0
 margin_right = 1024.0
-margin_bottom = 188.0
+margin_bottom = 248.0
 rect_min_size = Vector2( 0, 31 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Control/VBoxContainer/MasterKey"]
@@ -221,6 +278,7 @@ margin_right = 150.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 150, 0 )
 custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "Master Key: "
 
 [node name="TextEdit" parent="VBoxContainer/Control/VBoxContainer/MasterKey" instance=ExtResource( 6 )]
@@ -232,8 +290,10 @@ custom_styles/read_only = SubResource( 4 )
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/background_color = Color( 0, 0, 0, 1 )
 custom_colors/number_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_readonly = Color( 1, 1, 0.988235, 1 )
 text = "test"
 readonly = true
 
@@ -253,13 +313,14 @@ margin_bottom = 55.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
-text = "Its important that you keep this key a secret. With it you can manage your lederboard as an administraor"
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
+text = "Its important that you keep this key a secret. Everyone with this key can manage your lederboard as an administraor"
 autowrap = true
 
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer/Control/VBoxContainer"]
-margin_top = 208.0
+margin_top = 268.0
 margin_right = 1024.0
-margin_bottom = 243.0
+margin_bottom = 303.0
 rect_min_size = Vector2( 0, 35 )
 
 [node name="SubmitChangesButton" parent="VBoxContainer/Control/VBoxContainer/Buttons" instance=ExtResource( 2 )]
@@ -306,6 +367,7 @@ margin_bottom = 0.0
 
 [connection signal="pressed" from="VBoxContainer/Control/VBoxContainer/Name/QuestionButton" to="." method="_on_QuestionButton_name_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control/VBoxContainer/EncryptionKey/QuestionButton" to="." method="_on_QuestionButton_encryption_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/VBoxContainer/LowBetter/QuestionButton" to="." method="_on_QuestionButton_LowBetter_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control/VBoxContainer/PublicKey/QuestionButton" to="." method="_on_QuestionButton_public_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control/VBoxContainer/MasterKey/QuestionButton" to="." method="_on_QuestionButton_master_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control/VBoxContainer/Buttons/SubmitChangesButton" to="." method="_on_SubmitChangesButton_pressed"]

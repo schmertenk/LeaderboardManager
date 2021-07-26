@@ -33,9 +33,14 @@ func set_submissions(value):
 func set_blocked(value):
 	blocked = value
 	if blocked:
-		modulate = Color (0.8,0.2,0.2, 1.5)
+		$BlockColorRect.show()
+		$VBoxContainer/HBoxContainer/place.add_color_override("font_color", Color("#FFFFFC"))
+		$VBoxContainer/HBoxContainer/name.add_color_override("font_color", Color("#FFFFFC"))
+		$VBoxContainer/HBoxContainer/submissions.add_color_override("font_color", Color("#FFFFFC"))
+		$VBoxContainer/HBoxContainer/score.add_color_override("font_color", Color("#FFFFFC"))
 		$VBoxContainer/HBoxContainer/BlockButton.button_text = "Unblock Player"
-
+	else:
+		$BlockColorRect.hide()
 
 func _on_DeleteButton_pressed():
 	RequestManager.delete_entry(id, Global.current_leaderboard_in_view.master_key)

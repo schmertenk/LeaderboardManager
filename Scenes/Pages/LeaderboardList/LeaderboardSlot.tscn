@@ -38,6 +38,7 @@ margin_right = 278.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "test"
 
 [node name="entries" type="Label" parent="VBoxContainer/HBoxContainer"]
@@ -47,6 +48,7 @@ margin_right = 581.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "test"
 
 [node name="highscore" type="Label" parent="VBoxContainer/HBoxContainer"]
@@ -56,6 +58,7 @@ margin_right = 884.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
 text = "test"
 align = 2
 
@@ -80,7 +83,7 @@ margin_top = 38.0
 margin_right = 984.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 2 )
-color = Color( 0.698039, 0.670588, 0.54902, 1 )
+color = Color( 0.313726, 0.501961, 0.556863, 1 )
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Buttons/ViewButton" to="." method="_on_ViewButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Buttons/EditButton" to="." method="_on_EditButton_pressed"]
