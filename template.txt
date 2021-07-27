@@ -6,7 +6,6 @@ signal timeout(type)
 enum WAIT_FOR {
 	NOTHING,
 	HIGHSCORE_FOR_PLAYER,
-	HIGHSCORE_FOR_PLACE,
 	HIGHSCORE_FOR_PLACES,
 	SUBMISSION_INFO,
 	PLAYER_DATA
@@ -67,8 +66,8 @@ func _ready():
 	private_key = load_private_key()
 	player_id = load_player_id()
 	
-	if load_local_highscore() > 0:
-		#if there is soething to synch please do so
+	if load_local_highscore():
+		#if there is something to sync please do so
 		sync_global_score()
 	
 	
@@ -118,9 +117,12 @@ func load_local_highscore():
 	return data.highscore
 	
 	
-func save_local_highscore(score):
+func save_local_highscore(score, initial = false):
 	# just save the local highscore if its actually better than the last. else return
-	if low_wins && score >= load_local_highscore() or !low_wins && score <= load_local_highscore():
+
+	if !initial && load_local_highscore() && \
+		low_wins && score >= load_local_highscore() or !low_wins && \
+		score <= load_local_highscore():
 		return
 		
 	var file = File.new()
@@ -163,7 +165,7 @@ func generate_player_name():
 
 func make_local_highscore_file():
 	player_name = generate_player_name()
-	save_local_highscore(0)
+	save_local_highscore(null, true)
 
 
 func get_highscore_for_player(_player_id, before = 0, after = 0):
