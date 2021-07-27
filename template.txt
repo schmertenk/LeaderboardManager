@@ -14,6 +14,7 @@ enum WAIT_FOR {
 
 # set in config file under [Highscore]
 var public_key = "[[[public_key]]]"
+var low_wins = [[[low_wins]]]
 
 var host = "https://www.kitchen-games.de/leaderboard"
 
@@ -118,6 +119,10 @@ func load_local_highscore():
 	
 	
 func save_local_highscore(score):
+	# just save the local highscore if its actually better than the last. else return
+	if low_wins && score >= load_local_highscore() or !low_wins && score <= load_local_highscore():
+		return
+		
 	var file = File.new()
 	if file.open_encrypted_with_pass(highscore_file, File.WRITE, encryption_key) != 0:
 		print("Error opening file")

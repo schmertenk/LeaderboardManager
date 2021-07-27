@@ -65,6 +65,7 @@ func _on_SubmitChangesButton_pressed():
 func _on_ResetChanges_pressed():
 	$VBoxContainer/Control/VBoxContainer/Name/TextEdit.text = board.board_name
 	$VBoxContainer/Control/VBoxContainer/EncryptionKey/TextEdit.text = board.encryption_key
+	$VBoxContainer/Control/VBoxContainer/LowBetter/CheckBox.pressed = board.low_wins
 	
 
 

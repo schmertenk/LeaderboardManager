@@ -10,12 +10,13 @@ func _ready():
 	
 	
 	
-func make_export_script(public_key, encryption_key):
+func make_export_script(board):
 	var file = File.new()
 	file.open("res://Template.txt", File.READ)
 	var text = file.get_as_text()
-	text = text.replace("[[[public_key]]]", public_key)
-	text = text.replace("[[[encryption_key]]]", encryption_key)
+	text = text.replace("[[[public_key]]]", board.public_key)
+	text = text.replace("[[[encryption_key]]]", board.encryption_key)
+	text = text.replace("[[[low_wins]]]", "true" if board.low_wins else "false")
 	print(text)
 	return text
 
@@ -28,5 +29,5 @@ func _on_ExportButton_pressed():
 func on_file_selected(path):
 	var file = File.new()
 	file.open(path, File.WRITE)
-	file.store_string(make_export_script(board.public_key, board.encryption_key))
+	file.store_string(make_export_script(board))
 	file.close()

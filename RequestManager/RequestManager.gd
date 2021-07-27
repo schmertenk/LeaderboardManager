@@ -54,7 +54,10 @@ func _on_request_completed(_result, response_code, _headers, body):
 	var t = body.get_string_from_utf8()
 	if body.get_string_from_utf8():
 		var json = JSON.parse(body.get_string_from_utf8())
-		emit_signal("data_recieved", json.result, waiting_for)
+		if json.error == 0:
+			emit_signal("data_recieved", json.result, waiting_for)
+		else:
+			print("The recieved data with datatype " + WAIT_FOR.keys()[waiting_for] + " could not be decoded. \n", body.get_string_from_utf8())
 	time_out_timer.stop()
 	waiting_for = WAIT_FOR.NOTHING
 	loading_mask.hide()
@@ -86,8 +89,8 @@ func get_leaderboard_list(master_keys):
 	for key in master_keys:
 		key_string += str(key)
 		key_string += "_"
-		
-	send_request(host + "/get_leaderboards.php?master_keys=" + str(key_string), WAIT_FOR.LEADERBOARD_LIST)
+	var url = host + "/get_leaderboards.php?master_keys=" + str(key_string)
+	send_request(url, WAIT_FOR.LEADERBOARD_LIST)
 
 
 func add_new_leaderboard(board_name):
