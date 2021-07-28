@@ -119,10 +119,7 @@ func load_local_highscore():
 	
 func save_local_highscore(score, initial = false):
 	# just save the local highscore if its actually better than the last. else return
-
-	if !initial && load_local_highscore() && \
-		low_wins && score >= load_local_highscore() or !low_wins && \
-		score <= load_local_highscore():
+	if low_wins && score >= load_local_highscore() or !low_wins && score <= load_local_highscore():
 		return
 		
 	var file = File.new()
@@ -165,7 +162,13 @@ func generate_player_name():
 
 func make_local_highscore_file():
 	player_name = generate_player_name()
-	save_local_highscore(null, true)
+	var file = File.new()
+	if file.open_encrypted_with_pass(highscore_file, File.WRITE, encryption_key) != 0:
+		print("Error opening file")
+		return
+
+	file.store_line(to_json({"player_name": player_name, "highscore": null}))
+	file.close()
 
 
 func get_highscore_for_player(_player_id, before = 0, after = 0):
