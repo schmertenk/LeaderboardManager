@@ -72,7 +72,7 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
-text = "name"
+text = "Name"
 
 [node name="entries" type="Label" parent="VBoxContainer/SlotContainer/Slot/VBoxContainer/HBoxContainer"]
 margin_left = 303.0
@@ -82,7 +82,7 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
-text = "entries"
+text = "Number of entries"
 
 [node name="highscore" type="Label" parent="VBoxContainer/SlotContainer/Slot/VBoxContainer/HBoxContainer"]
 margin_left = 606.0
@@ -92,7 +92,7 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
-text = "score"
+text = "Current highscore"
 align = 2
 
 [node name="actions" type="Label" parent="VBoxContainer/SlotContainer/Slot/VBoxContainer/HBoxContainer"]
@@ -103,7 +103,7 @@ margin_bottom = 30.0
 rect_min_size = Vector2( 75, 0 )
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0.14902, 0.14902, 1 )
-text = "actions"
+text = "Actions"
 align = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/SlotContainer/Slot/VBoxContainer"]

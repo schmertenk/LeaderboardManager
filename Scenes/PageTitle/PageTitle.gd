@@ -9,6 +9,7 @@ export var how_to = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$IconButton.visible = how_to
+	$Version.text = Global.version
 
 
 func set_text(value):

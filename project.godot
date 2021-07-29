@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Leaderboard",
 "language": "GDScript",
 "path": "res://MasterKeyManager/Leaderboard.gd"
+}, {
+"base": "Object",
+"class": "Template",
+"language": "GDScript",
+"path": "res://template.gd"
 } ]
 _global_script_class_icons={
 "AES": "",
-"Leaderboard": ""
+"Leaderboard": "",
+"Template": ""
 }
 
 [application]
