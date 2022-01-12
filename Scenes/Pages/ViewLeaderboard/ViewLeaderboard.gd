@@ -12,9 +12,9 @@ func _on_data_recieved(data, data_type):
 	if data_type == RequestManager.WAIT_FOR.HIGHSCORE_FOR_PLACES:
 		if !data:
 			return
-		for e in $VBoxContainer/SlotContainer.get_children():
-			if e != $VBoxContainer/SlotContainer.get_child(0):
-				$VBoxContainer/SlotContainer.remove_child(e)
+		for e in $VBoxContainer/ScrollContainer/SlotContainer.get_children():
+			if e != $VBoxContainer/ScrollContainer/SlotContainer.get_child(0):
+				$VBoxContainer/ScrollContainer/SlotContainer.remove_child(e)
 				
 		for e in data:
 			var entry = preload("res://Scenes/Pages/ViewLeaderboard/Entry.tscn").instance()
@@ -25,7 +25,7 @@ func _on_data_recieved(data, data_type):
 			entry.id = e.id
 			entry.blocked = e.blocked
 			entry.player_id = e.player
-			$VBoxContainer/SlotContainer.add_child(entry)
+			$VBoxContainer/ScrollContainer/SlotContainer.add_child(entry)
 			entry.connect("updated", self, "on_list_updated")
 			
 
