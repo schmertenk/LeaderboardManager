@@ -4,7 +4,7 @@ var leaderboard = Global.current_leaderboard_in_view
 
 func _ready():
 	$VBoxContainer/PageTitle.text = str(leaderboard.board_name)
-	RequestManager.get_highscore_for_places(leaderboard.public_key, 1,200)
+	RequestManager.get_highscore_for_places(leaderboard.public_key, 1,10000)
 	RequestManager.connect("data_recieved", self, "_on_data_recieved")
 
 	

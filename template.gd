@@ -91,7 +91,6 @@ func load_config():
 func _on_request_completed(_result, response_code, _headers, body):
 	if response_code != 200 or waiting_for == WAIT_FOR.NOTHING:
 		return
-		
 	var json = JSON.parse(body.get_string_from_utf8())
 	emit_signal("data_recieved", json.result, waiting_for)
 	time_out_timer.stop()
@@ -124,7 +123,7 @@ func load_local_highscore():
 	
 func save_local_highscore(score, initial = false):
 	# just save the local highscore if its actually better than the last. else return
-	if low_wins && score >= load_local_highscore() or !low_wins && score <= load_local_highscore():
+	if load_local_highscore() != null and (low_wins && score >= load_local_highscore() or !low_wins && score <= load_local_highscore()):
 		return
 		
 	var file = File.new()
