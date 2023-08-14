@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Template",
 "language": "GDScript",
 "path": "res://template.gd"
+}, {
+"base": "Object",
+"class": "TemplateGodot4",
+"language": "GDScript",
+"path": "res://templateGodot4.gd"
 } ]
 _global_script_class_icons={
 "AES": "",
 "Leaderboard": "",
-"Template": ""
+"Template": "",
+"TemplateGodot4": ""
 }
 
 [application]
