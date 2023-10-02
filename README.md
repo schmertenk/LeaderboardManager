@@ -11,6 +11,7 @@ if you're not using Godot you can use the API manually via GET requests
 - managing leaderboards
 - managing highscores and players
 - easy implemtation for Godot 3 and 4
+- A GET API for use without Godot
 
 
 ### Disclaimer
