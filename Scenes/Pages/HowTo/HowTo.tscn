@@ -115,62 +115,48 @@ focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/mono_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/selection_color = Color( 0.411765, 0.635294, 0.592157, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 0.988235, 1 )
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
-bbcode_text = "This Software is capable of creating and managing global leaderboards for your game!
-It grants you easy access to my server at kitchen-games.de which allows you to store and get leaderboard data by sending various get requests. 
-Read on for more information.
+bbcode_text = "This software possesses the capability to create and oversee global leaderboards for your game. It provides you with convenient access to our server at kitchen-games.de, enabling you to store and retrieve leaderboard data through a variety of GET requests. Please continue reading for further details.
 
-If you're lucky and developing with the godot game engine, this software can generate a GD Script which saves you the effort to implement the request sending and local saving parts.
-(Tested with version 3.3)"
-text = "This Software is capable of creating and managing global leaderboards for your game!
-It grants you easy access to my server at kitchen-games.de which allows you to store and get leaderboard data by sending various get requests. 
-Read on for more information.
+If you happen to be using the Godot game engine, this software can generate a GD Script for you. This script streamlines the process by handling request submissions and local data storage, sparing you the effort of manual implementation (Godot 3.x, Godot 4.x))"
+text = "This software possesses the capability to create and oversee global leaderboards for your game. It provides you with convenient access to our server at kitchen-games.de, enabling you to store and retrieve leaderboard data through a variety of GET requests. Please continue reading for further details.
 
-If you're lucky and developing with the godot game engine, this software can generate a GD Script which saves you the effort to implement the request sending and local saving parts.
-(Tested with version 3.3)"
+If you happen to be using the Godot game engine, this software can generate a GD Script for you. This script streamlines the process by handling request submissions and local data storage, sparing you the effort of manual implementation (Godot 3.x, Godot 4.x))"
 selection_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="A5" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer/Answers"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/mono_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/selection_color = Color( 0.411765, 0.635294, 0.592157, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 0.988235, 1 )
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
-bbcode_text = "There are some areas in this area for managing your leaderboards. 
+bbcode_text = "Within this interface, you'll find dedicated sections for leaderboard management.
 
-The first one is the Leaderboardlist. Its the first witch is shown when you boot up this software. You can get to it from anywere by pressing the back button in the lower left corner.
-The leaderboard list shows, as the name applies, all the leaderboards you has access to. each leaderboard can be viewd, or edited. You can create a new leaderboard or gain access to an existing one by clicking the \"+\" button at the bottom of the list.
+Leaderboard List: This initial screen displays all accessible leaderboards. You can create new ones or access existing ones via the \"+\" button.
 
-If you click the view button for a leaderboard, you get to the leaderboard view. On this page all entries, even the blocked ones, of the leaderboard are shown in descending order. Here you can delete entries. If you delete an entry of a player who has submited multiple scores, the next will be shown in the board. to get rid of all entries by a player its recomended to block the player from the board. this way all his entries are hidden. You can block and unblock any player.
+Leaderboard View: Here, you'll see all entries, including blocked ones, in descending order. You can delete entries or block/unblock players.
 
-If you click the edit button on any leaderboard in your list, you'll get to the edit area. Here you can edit the name of the board, as well as its encryption key. The encryption key is used to decrypt the score the player submits to the board. If you suspect a player to found the key and cheated, please change it here as well as in your implimentation in your game. Also you have the posibility to delete your leaderboard from the server or just from your own private leaderboard list. Please notice that if you remove the board from your list, and dont have the master_key saved somewhere, there is no way you can access it again.
+Edit Area: In this section, you can modify the leaderboard's name and encryption key. If needed, you can also delete the leaderboard from the server or your private list. Be cautious; removing it from your list without saving the master key elsewhere will result in permanent loss of access."
+text = "Within this interface, you'll find dedicated sections for leaderboard management.
 
-"
-text = "There are some areas in this area for managing your leaderboards. 
+Leaderboard List: This initial screen displays all accessible leaderboards. You can create new ones or access existing ones via the \"+\" button.
 
-The first one is the Leaderboardlist. Its the first witch is shown when you boot up this software. You can get to it from anywere by pressing the back button in the lower left corner.
-The leaderboard list shows, as the name applies, all the leaderboards you has access to. each leaderboard can be viewd, or edited. You can create a new leaderboard or gain access to an existing one by clicking the \"+\" button at the bottom of the list.
+Leaderboard View: Here, you'll see all entries, including blocked ones, in descending order. You can delete entries or block/unblock players.
 
-If you click the view button for a leaderboard, you get to the leaderboard view. On this page all entries, even the blocked ones, of the leaderboard are shown in descending order. Here you can delete entries. If you delete an entry of a player who has submited multiple scores, the next will be shown in the board. to get rid of all entries by a player its recomended to block the player from the board. this way all his entries are hidden. You can block and unblock any player.
-
-If you click the edit button on any leaderboard in your list, you'll get to the edit area. Here you can edit the name of the board, as well as its encryption key. The encryption key is used to decrypt the score the player submits to the board. If you suspect a player to found the key and cheated, please change it here as well as in your implimentation in your game. Also you have the posibility to delete your leaderboard from the server or just from your own private leaderboard list. Please notice that if you remove the board from your list, and dont have the master_key saved somewhere, there is no way you can access it again.
-
-"
+Edit Area: In this section, you can modify the leaderboard's name and encryption key. If needed, you can also delete the leaderboard from the server or your private list. Be cautious; removing it from your list without saving the master key elsewhere will result in permanent loss of access."
 selection_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,11 +170,11 @@ focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/mono_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/selection_color = Color( 0.411765, 0.635294, 0.592157, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 0.988235, 1 )
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "You access the leaderboard by sending GET Requests to the kitche-games.de server under [color=#9984D4][code]https://www.kitchen-games.de/leaderboard[/code][/color]. 
 Therefor you need to provide the corresponding public key to your board. 
@@ -233,11 +219,11 @@ focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/mono_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/selection_color = Color( 0.411765, 0.635294, 0.592157, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 0.988235, 1 )
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "You access the leaderboard by sending GET Requests to the kitche-games.de server under [color=#9984D4][code]https://www.kitchen-games.de/leaderboard[/code][/color]. 
 Therefor you need to provide the corresponding public key to your board. 
@@ -298,11 +284,11 @@ focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/mono_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/selection_color = Color( 0.411765, 0.635294, 0.592157, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 0.988235, 1 )
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "It should be. The server is hosted for free and therefor its availability is not guaranteed. This is a free service so i try to keep the costs low.
 
@@ -325,11 +311,11 @@ focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/mono_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0.14902, 0.14902, 1 )
 custom_colors/selection_color = Color( 0.411765, 0.635294, 0.592157, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 0.988235, 1 )
+custom_fonts/mono_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Totally not! At least when you using the Godot Game Engine. You can generate a script that handles getting and submitting data from your leaderboard, as well as saving the score localy.
 

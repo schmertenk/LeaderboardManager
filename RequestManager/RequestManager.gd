@@ -36,7 +36,7 @@ func _ready():
 	loading_mask = preload("res://RequestManager/LoadingMask/LoadingMask.tscn").instance()
 	timeout_mask = preload("res://RequestManager/TimeOutMask/TimeOutMask.tscn").instance()
 	time_out_timer = Timer.new()
-	time_out_timer.wait_time = 5
+	time_out_timer.wait_time = 15
 	time_out_timer.connect("timeout", self, "on_timeout")
 	add_child(time_out_timer)
 	http_request = HTTPRequest.new()
