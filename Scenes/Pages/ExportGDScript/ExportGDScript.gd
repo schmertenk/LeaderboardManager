@@ -6,8 +6,8 @@ var export_for_godot4 = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if board:
-		$VBoxContainer/Control/VBoxContainer/CenterContainer/HBoxContainer/ExportButton.text = "Export Highscoremanager for " + str(board.board_name)
-
+		$VBoxContainer/Control/VBoxContainer2/Godot3Container/CenterContainer/HBoxContainer/ExportButton.text = "Export Highscoremanager for " + str(board.board_name)
+		$VBoxContainer/Control/VBoxContainer2/Godot4Container/CenterContainer/HBoxContainer/ExportButton.text = "Export Highscoremanager for " + str(board.board_name)
 	
 	
 func make_export_script(board, for_godot_4 = false):
@@ -63,3 +63,13 @@ func _on_G4ExportButton_pressed():
 		'element.setAttribute("download", "HighscoreManager.gd");'+
 		'document.body.appendChild(element);'+
 		'element.click();')
+
+
+func _on_Godot3_pressed():
+	$VBoxContainer/Control/VBoxContainer2/Godot3Container.visible = true
+	$VBoxContainer/Control/VBoxContainer2/Godot4Container.visible = false
+
+
+func _on_Godot4_pressed():
+	$VBoxContainer/Control/VBoxContainer2/Godot3Container.visible = false
+	$VBoxContainer/Control/VBoxContainer2/Godot4Container.visible = true
